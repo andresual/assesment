@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.andresual.nexmedisassesment.util.ExtensionsKt"/>
+
+        <variable
+            name="isGrid"
+            type="Boolean" />
+
+        <variable
+            name="meal"
+            type="com.andresual.nexmedisassesment.domain.model.Meal" />
+    </data>
+
+    <LinearLayout
+        detailId="@{meal.idMeal}"
+        detailImageUrl="@{meal.strMealThumb}"
+        android:layout_height="wrap_content"
+        android:layout_width="@dimen/grid_list_item_width"
+        android:layout_marginEnd="@dimen/recyclerview_item_end_margin"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/portrait_image_height"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+        <ImageView
+            errorImage="@{@drawable/ic_baseline_image_24}"
+            imageUrl="@{meal.strMealThumb}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{meal.strMeal}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:background="@drawable/rounded_corner_textview"
+                android:paddingEnd="@dimen/textview_drawable_padding"
+                android:text="@{meal.strArea}"
+                android:textSize="12sp"
+                tools:text="Title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:background="@drawable/rounded_corner_textview_area"
+                android:maxLines="1"
+                android:text="@{meal.strCategory}"
+                android:textSize="12sp"
+                tools:text="Title" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

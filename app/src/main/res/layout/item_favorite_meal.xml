@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.andresual.nexmedisassesment.util.ExtensionsKt"/>
+
+        <variable
+            name="meal"
+            type="com.andresual.nexmedisassesment.domain.model.FavoriteMeal" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            detailId="@{meal.idMeal}"
+            detailImageUrl="@{meal.strMealThumb}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/start_margin"
+            android:paddingTop="@dimen/top_margin_small"
+            android:paddingEnd="@dimen/end_margin"
+            android:paddingBottom="@dimen/bottom_margin_small">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/portrait_image_width_small"
+                android:layout_height="@dimen/portrait_image_height_small"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <ImageView
+                    errorImage="@{@drawable/ic_baseline_image_24}"
+                    imageUrl="@{meal.strMealThumb}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@drawable/ic_baseline_image_24" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/start_margin"
+                android:layout_marginEnd="42dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:text="@{meal.strMeal}"
+                    android:textSize="@dimen/title_text_size_small"
+                    android:textStyle="bold"
+                    tools:text="Meal Name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:drawablePadding="@dimen/textview_drawable_padding"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@{meal.strCategory}"
+                    app:drawableTint="@color/day_night"
+                    tools:text="Meal category" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/textview_drawable_padding"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@{meal.strArea}"
+                    tools:text="Meal Area" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/padding_close_button"
+            android:src="@drawable/ic_baseline_close_24"
+            app:tint="@color/day_night" />
+
+    </FrameLayout>
+</layout>

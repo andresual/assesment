@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.andresual.nexmedisassesment.presentation.screen.home.HomeFragment"
+        android:label="fragment_home" />
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.andresual.nexmedisassesment.presentation.screen.favorites.FavoritesFragment"
+        android:label="FavoriteFragment" />
+
+    <fragment
+        android:id="@+id/mealDetailFragment"
+        android:name="com.andresual.nexmedisassesment.presentation.screen.mealdetail.MealDetailFragment"
+        android:label="MealDetailFragment">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="backgroundColor"
+            app:argType="integer" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_mealDetailsFragment"
+        app:destination="@id/mealDetailFragment" />
+</navigation>
